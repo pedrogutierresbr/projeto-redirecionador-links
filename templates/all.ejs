@@ -18,7 +18,7 @@
 
         <script>
             function deleteLink(id) {
-                fetch("/" + id + "o", { method: "DELETE" }).then((res) => {
+                fetch("/" + id, { method: "DELETE" }).then((res) => {
                     if (res.status == 200) {
                         res.text().then((linkId) => {
                             console.log(linkId);
