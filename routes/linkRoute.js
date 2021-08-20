@@ -13,6 +13,6 @@ router.post("/", express.urlencoded({ extended: true }), addLink);
 
 router.delete("/:id", deleteLink);
 
-router.delete("/", express.urlencoded({ extended: true }), deleteLink);
+router.delete("/", express.json(), deleteLink);
 
 module.exports = router;
