@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { redirect, addLink } = require("../controllers/linkController");
+const { redirect, addLink, allLinks } = require("../controllers/linkController");
+
+router.get("/all", allLinks);
 
 router.get("/:title", redirect);
 
