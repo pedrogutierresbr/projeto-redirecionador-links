@@ -5,7 +5,6 @@ const redirect = async (req, res) => {
 
     try {
         let doc = await Link.findOne({ title });
-        console.log(doc);
         if (doc) {
             res.redirect(doc.url);
         } else {
@@ -20,8 +19,8 @@ const addLink = async (req, res) => {
     let link = new Link(req.body);
 
     try {
-        let doc = await link.save();
-        res.send("Link adicionado com sucesso");
+        await link.save();
+        res.redirect("/");
     } catch (error) {
         res.render("index", { error, body: req.body });
     }
