@@ -5,7 +5,7 @@ const { redirect, addLink } = require("../controllers/linkController");
 
 router.get("/:title", redirect);
 
-router.get("/", (req, res) => res.render("index"));
+router.get("/", (req, res) => res.render("index", { error: false, body: {} }));
 
 router.post("/", express.urlencoded({ extended: true }), addLink);
 
