@@ -6,7 +6,11 @@ const redirect = async (req, res) => {
     try {
         let doc = await Link.findOne({ title });
         console.log(doc);
-        res.redirect(doc.url);
+        if (doc) {
+            res.redirect(doc.url);
+        } else {
+            next();
+        }
     } catch (error) {
         res.send(error);
     }
@@ -26,7 +30,7 @@ const addLink = async (req, res) => {
 const allLinks = async (req, res) => {
     try {
         let links = await Link.find({});
-        res.send(links);
+        res.render("all", { links });
     } catch (error) {
         res.send(error);
     }
