@@ -7,9 +7,20 @@ const redirect = async (req, res) => {
         let doc = await Link.findOne({ title });
         console.log(doc);
         res.redirect(doc.url);
-    } catch (err) {
-        res.send("Houve um erro");
+    } catch (error) {
+        res.send(error);
     }
 };
 
-module.exports = { redirect };
+const addLink = async (req, res) => {
+    let link = new Link(req.body);
+
+    try {
+        let doc = await link.save();
+        res.send("Link adicionado com sucesso");
+    } catch (error) {
+        res.send(error);
+    }
+};
+
+module.exports = { redirect, addLink };
