@@ -7,8 +7,8 @@
         <title>Redirection Links</title>
     </head>
     <body>
-        <h1>Add Links</h1>
-        <form action="/" method="POST">
+        <h1>Edit Links</h1>
+        <form action="/edit/<%=body.id%>" method="POST">
             <input
                 type="text"
                 class="field"
@@ -33,7 +33,7 @@
                 value="<%=body.description%>"
             />
 
-            <button>Add</button>
+            <button>Edit</button>
         </form>
 
         <%if(error){%>
