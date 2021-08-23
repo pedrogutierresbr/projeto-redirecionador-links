@@ -15,39 +15,56 @@
         />
     </head>
     <body>
-        <div class="container p-3">
+        <div class="container w-50 p-3">
             <h1>Add Links</h1>
-            <form class="d-flex align-items-center" action="/" method="POST">
+            <form class="d-flex flex-column" action="/" method="POST">
                 <input
                     type="text"
-                    class="field"
+                    class="mb-2"
                     name="title"
                     placeholder="Title"
                     value="<%=body.title%>"
-                    required
                 />
                 <input
                     type="text"
-                    class="field ml-2"
+                    class="mb-2"
                     name="url"
                     placeholder="URL"
                     value="<%=body.url%>"
-                    required
                 />
                 <input
                     type="text"
-                    class="field ml-2"
+                    class="mb-4"
                     name="description"
                     placeholder="Description"
                     value="<%=body.description%>"
                 />
 
-                <button class="btn btn-primary ml-2">Add</button>
+                <button class="btn btn-primary w-25 m-auto">Add</button>
             </form>
 
             <%if(error){%>
-            <h3><%=error.message%></h3>
+            <div class="w-75 alert alert-danger alert-dismissible mx-auto mt-3">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Error: <%=error.message%></strong>
+            </div>
             <%}%>
         </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>
