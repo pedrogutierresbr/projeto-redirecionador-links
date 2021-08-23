@@ -5,39 +5,49 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Redirection Links</title>
+
+        <!-- CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+            crossorigin="anonymous"
+        />
     </head>
     <body>
-        <h1>Edit Links</h1>
-        <form action="/edit/<%=body.id%>" method="POST">
-            <input
-                type="text"
-                class="field"
-                name="title"
-                placeholder="Title"
-                value="<%=body.title%>"
-                required
-            />
-            <input
-                type="text"
-                class="field"
-                name="url"
-                placeholder="URL"
-                value="<%=body.url%>"
-                required
-            />
-            <input
-                type="text"
-                class="field"
-                name="description"
-                placeholder="Description"
-                value="<%=body.description%>"
-            />
+        <div class="container p-3">
+            <h1>Edit Links</h1>
+            <form class="d-flex align-items-center" action="/edit/<%=body.id%>" method="POST">
+                <input
+                    type="text"
+                    class="field"
+                    name="title"
+                    placeholder="Title"
+                    value="<%=body.title%>"
+                    required
+                />
+                <input
+                    type="text"
+                    class="field ml-2"
+                    name="url"
+                    placeholder="URL"
+                    value="<%=body.url%>"
+                    required
+                />
+                <input
+                    type="text"
+                    class="field ml-2"
+                    name="description"
+                    placeholder="Description"
+                    value="<%=body.description%>"
+                />
 
-            <button>Edit</button>
-        </form>
+                <button class="btn btn-primary ml-2">Edit</button>
+            </form>
 
-        <%if(error){%>
-        <h3><%=error.message%></h3>
-        <%}%>
+            <%if(error){%>
+            <h3><%=error.message%></h3>
+            <%}%>
+        </div>
     </body>
 </html>
