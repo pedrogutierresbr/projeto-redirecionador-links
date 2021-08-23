@@ -5,36 +5,43 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Link</title>
+
+        <!-- CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </head>
     <body>
-        <h1>Links</h1>
-        <a href="/add">Adicionar Link</a>
-        <% for(let i=0; i < links.length; i++) { %>
-        <div id="<%=links[i]._id%>">
-            <h2><%=links[i].title%></h2>
-            <div><%=links[i].description%></div>
-            <div><%=links[i].url%></div>
-            <button onclick="deleteLink('<%=links[i]._id%>')">Delete</button>
-            <a href="/edit/<%=links[i]._id%>">Edit</a>
+        <div class="container">
+            <h1>Links</h1>
+            <a href="/add">Adicionar Link</a>
+            <% for(let i=0; i < links.length; i++) { %>
+            <div class="card p-3 mb-3" id="<%=links[i]._id%>">
+                <form
+                    class="d-flex justify-content-between align-items-center"
+                    method="POST"
+                    action="/?_method=DELETE"
+                >
+                    <div class="d-flex flex-column">
+                        <h2><%=links[i].title%></h2>
+                        <div><%=links[i].description%></div>
+                        <div class="text-secondary"><%=links[i].url%></div>
+                        <div class="text-info d-flex align-items-center">
+                            <i class="material-icons">bar_chart</i> Clicks: <%=links[i].click%>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <input name="id" value="<%=links[i]._id%>" hidden />
+                        <a class="btn btn-info mb-1" href="/edit/<%=links[i]._id%>">Edit</a>
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </div>
+                </form>
+            </div>
+            <% }%>
         </div>
-        <% }%>
-
-        <script>
-            function deleteLink(id) {
-                fetch("/" + id, { method: "DELETE" }).then((res) => {
-                    if (res.status == 200) {
-                        res.text().then((linkId) => {
-                            console.log(linkId);
-                            document.getElementById(linkId).remove();
-                        });
-                    } else {
-                        res.json().then((err) => {
-                            alert(err.message);
-                            console.log(err.message);
-                        });
-                    }
-                });
-            }
-        </script>
     </body>
 </html>
