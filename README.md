@@ -6,7 +6,7 @@ Projeto criado para estudos de integração entre Node JS e Mongo DB, utilizando
 
 ## Demonstração
 
-![Demonstração]()
+![Demonstração](https://github.com/pedrogutierresbr/redirecionador-links/blob/main/public/assets/layout.png?raw=true)
 
 ## Tecnologias usadas
 
