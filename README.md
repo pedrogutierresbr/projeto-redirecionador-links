@@ -22,6 +22,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 -   Express
 
+-   HTML5
+
+-   CSS3
+
 ## Pré-requisitos
 
 Você vai precisar de:
